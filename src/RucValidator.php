@@ -65,7 +65,7 @@ class RucValidator extends Validator
 
     protected function checkProvinceCode()
     {
-        $code = substr($this->ruc, 0, 2);
+        $code = (int) substr($this->ruc, 0, 2);
 
         if($code > 0 && $code < 24) {
             return true;
