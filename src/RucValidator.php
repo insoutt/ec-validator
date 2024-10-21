@@ -2,7 +2,6 @@
 
 namespace Insoutt\EcValidator;
 
-use Insoutt\EcValidator\Exceptions\CICodeException;
 use Insoutt\EcValidator\Exceptions\LengthException;
 use Insoutt\EcValidator\Exceptions\RucCodeException;
 use Insoutt\EcValidator\Exceptions\RucLast3DigitsException;
