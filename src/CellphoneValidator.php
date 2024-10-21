@@ -45,7 +45,13 @@ class CellphoneValidator
     {
         $this->checkDigits();
         $this->checkLength(10);
-        return $this->isValidLocalNumber($this->phoneNumber);
+        
+        // El número local debe tener 10 dígitos y empezar con 09
+        if (strlen($this->phoneNumber) !== 10 || substr($this->phoneNumber, 0, 2) !== '09') {
+            throw new CellphoneLocalException('Número de celular no válido');
+        }
+
+        return true;
     }
 
     protected function checkDigits()
@@ -64,15 +70,5 @@ class CellphoneValidator
         }
 
         throw new \LengthException("El número de celular debe ser de {$length} caracteres");
-    }
-
-    protected function isValidLocalNumber($localNumber)
-    {
-        // El número local debe tener 10 dígitos y empezar con 09
-        if (strlen($this->phoneNumber) !== 10 || substr($this->phoneNumber, 0, 2) !== '09') {
-            throw new CellphoneLocalException('Número de celular no válido');
-        }
-
-        return true;
     }
 }
