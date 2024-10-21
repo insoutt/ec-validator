@@ -92,7 +92,7 @@ class PlacaValidator extends Validator
             return true;
         }
 
-        throw new InvalidArgumentException('La placa no es válida');
+        throw new InvalidArgumentException("La placa {$this->licensePlate} no es válida");
     }
 
     protected function checkDigits($start, $end)
@@ -103,7 +103,7 @@ class PlacaValidator extends Validator
             return true;
         }
 
-        throw new InvalidArgumentException('La placa no es válida');
+        throw new InvalidArgumentException("La placa {$this->licensePlate} no es válida");
     }
 
     protected function isString()
