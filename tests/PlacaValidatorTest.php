@@ -2,7 +2,6 @@
 
 namespace Insoutt\EcValidator\Tests;
 
-use Insoutt\EcValidator\Exceptions\ProvinceCodeException;
 use Insoutt\EcValidator\PlacaValidator;
 
 class PlacaValidatorTest extends TestCase
@@ -27,10 +26,10 @@ class PlacaValidatorTest extends TestCase
 
     public function test_valid_placa()
     {
-        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet. 
-         * Para solicitar eliminar un número de cédula hacerlo mediante 
+        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.
+         * Para solicitar eliminar un número de cédula hacerlo mediante
          * la sección de issues en el repositorio de este proyecto.
-         * 
+         *
          *    https://www.comisiontransito.gob.ec/wp-content/uploads/2021/07/REGISTRO-TRÁMITE-PENDIENTES-DE-PLACA-2019-CARROS.pdf
          *    https://transitopasaje.gob.ec/formulario/RETIRO-PLACAS.pdf
          */
@@ -50,7 +49,7 @@ class PlacaValidatorTest extends TestCase
             (new PlacaValidator('IZ007P'))->validate(),
         ];
 
-        $result = array_filter($validations, function($value) { return !$value; });
+        $result = array_filter($validations, function ($value) { return ! $value; });
         $this->assertSame(0, count($result));
     }
 }

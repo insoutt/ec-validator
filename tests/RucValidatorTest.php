@@ -3,8 +3,6 @@
 namespace Insoutt\EcValidator\Tests;
 
 use Exception;
-use Insoutt\EcValidator\CIValidator;
-use Insoutt\EcValidator\Exceptions\CICodeException;
 use Insoutt\EcValidator\Exceptions\LengthException;
 use Insoutt\EcValidator\Exceptions\RucCodeException;
 use Insoutt\EcValidator\Exceptions\RucLast3DigitsException;
@@ -23,7 +21,7 @@ class RucValidatorTest extends TestCase
     public function test_ruc_code_exception()
     {
         $this->expectException(RucCodeException::class);
-        
+
         $validator = new RucValidator('0010000000001');
         $validator->validate();
     }
@@ -48,10 +46,10 @@ class RucValidatorTest extends TestCase
 
     public function test_valid_ruc()
     {
-        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet. 
-         * Para solicitar eliminar un número de cédula hacerlo mediante 
+        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.
+         * Para solicitar eliminar un número de cédula hacerlo mediante
          * la sección de issues en el repositorio de este proyecto.
-         * 
+         *
          *    https://www.aduana.gob.ec/archivos/Boletines/2016/Nuevos_Tipos_de_Embalajes_CyD.pdf
          */
         $validations = [
@@ -157,8 +155,7 @@ class RucValidatorTest extends TestCase
             (new RucValidator('1792250285001'))->validate(),
         ];
 
-        $result = array_filter($validations, function($value) { return !$value; });
+        $result = array_filter($validations, function ($value) { return ! $value; });
         $this->assertSame(0, count($result));
     }
-
 }

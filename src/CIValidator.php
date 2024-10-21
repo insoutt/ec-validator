@@ -27,6 +27,7 @@ class CIValidator extends Validator
             $this->checkDigits();
             $this->checkProvinceCode();
             $this->checkCi();
+
             return true;
         } catch (\Throwable $th) {
             throw $th;
@@ -35,7 +36,7 @@ class CIValidator extends Validator
 
     protected function isString()
     {
-        if(is_string($this->ci)) {
+        if (is_string($this->ci)) {
             return true;
         }
 
@@ -44,7 +45,7 @@ class CIValidator extends Validator
 
     protected function checkDigits()
     {
-        if(ctype_digit($this->ci)) {
+        if (ctype_digit($this->ci)) {
             return true;
         }
 
@@ -53,7 +54,7 @@ class CIValidator extends Validator
 
     protected function checkLength()
     {
-        if(strlen($this->ci) === 10) {
+        if (strlen($this->ci) === 10) {
             return true;
         }
 
@@ -64,11 +65,11 @@ class CIValidator extends Validator
     {
         $code = (int) substr($this->ci, 0, 2);
 
-        if($code > 0 && $code < 24) {
+        if ($code > 0 && $code < 24) {
             return true;
         }
 
-        if($code === 30) { // Extranjeros
+        if ($code === 30) { // Extranjeros
             return true;
         }
 
@@ -88,6 +89,7 @@ class CIValidator extends Validator
             array_keys($digits),
             function ($previous, $index) use ($digits) {
                 $current = $digits[$index];
+
                 return $previous - ($current * (2 - $index % 2)) % 9 - ($current === 9 ? 9 : 0);
             },
             1000
@@ -96,6 +98,4 @@ class CIValidator extends Validator
         // Compare the calculated digit with the verifier
         return $calculated === $verifier;
     }
-
- 
 }

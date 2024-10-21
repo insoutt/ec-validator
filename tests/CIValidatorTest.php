@@ -12,9 +12,10 @@ class CIValidatorTest extends TestCase
     public function test_ci_must_be_string()
     {
         $this->expectException(Exception::class);
-        
+
         (new CIValidator(1012897898))->validate();
     }
+
     public function test_ci_length_exception()
     {
         $this->expectException(LengthException::class);
@@ -26,17 +27,17 @@ class CIValidatorTest extends TestCase
     public function test_ci_code_exception()
     {
         $this->expectException(CICodeException::class);
-        
+
         $validator = new CIValidator('0012897898');
         $validator->validate();
     }
 
     public function test_valid_ci()
     {
-        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet. 
-         * Para solicitar eliminar un número de cédula hacerlo mediante 
+        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.
+         * Para solicitar eliminar un número de cédula hacerlo mediante
          * la sección de issues en el repositorio de este proyecto.
-         * 
+         *
          *    https://portal.compraspublicas.gob.ec/sercop/wp-content/uploads/2018/04/ASISTENTE_DE_ATENCION_USUARIO_PROVINCIAL_ZONAL2.pdf
          *    https://portal.compraspublicas.gob.ec/sercop/wp-content/uploads/2018/04/ASISTENTE_DE_ATENCION_USUARIO_PROVINCIAL_ZONAL2.pdf
          */
@@ -97,7 +98,7 @@ class CIValidatorTest extends TestCase
             (new CIValidator('1717795882'))->validate(),
         ];
 
-        $result = array_filter($validations, function($value) { return !$value; });
+        $result = array_filter($validations, function ($value) { return ! $value; });
         $this->assertSame(0, count($result));
     }
 }

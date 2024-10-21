@@ -6,5 +6,4 @@ use Exception;
 
 class RucLast3DigitsException extends Exception
 {
-    
 }

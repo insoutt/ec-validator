@@ -27,6 +27,7 @@ class RucValidator extends Validator
             $this->checkProvinceCode();
             $this->checkLas3Digits();
             $this->checkMod10();
+
             return true;
         } catch (\Throwable $th) {
             throw $th;
@@ -35,7 +36,7 @@ class RucValidator extends Validator
 
     protected function isString()
     {
-        if(is_string($this->ruc)) {
+        if (is_string($this->ruc)) {
             return true;
         }
 
@@ -46,7 +47,7 @@ class RucValidator extends Validator
     {
         $last3Digits = (int) substr($this->ruc, 10, 3);
 
-        if($last3Digits > 0) {
+        if ($last3Digits > 0) {
             return true;
         }
 
@@ -55,7 +56,7 @@ class RucValidator extends Validator
 
     protected function checkLength()
     {
-        if(strlen($this->ruc) === 13) {
+        if (strlen($this->ruc) === 13) {
             return true;
         }
 
@@ -66,11 +67,11 @@ class RucValidator extends Validator
     {
         $code = (int) substr($this->ruc, 0, 2);
 
-        if($code > 0 && $code < 24) {
+        if ($code > 0 && $code < 24) {
             return true;
         }
 
-        if($code === 30) { // Extranjeros
+        if ($code === 30) { // Extranjeros
             return true;
         }
 
@@ -81,6 +82,4 @@ class RucValidator extends Validator
     {
         // TODO: Implement logic
     }
-
- 
 }

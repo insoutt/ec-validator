@@ -15,7 +15,7 @@ class PlacaValidator extends Validator
 
     public function __construct($licensePlate)
     {
-        
+
         $this->licensePlate = $licensePlate;
     }
 
@@ -27,9 +27,10 @@ class PlacaValidator extends Validator
             try {
                 return $this->validateMoto();
             } catch (\Throwable $motoException) {
-                if($carException->getMessage() === $motoException->getMessage()) {
+                if ($carException->getMessage() === $motoException->getMessage()) {
                     throw new \InvalidArgumentException($carException->getMessage());
                 }
+
                 throw new \InvalidArgumentException($carException->getMessage() . ' o ' . $motoException->getMessage());
             }
         }
@@ -43,6 +44,7 @@ class PlacaValidator extends Validator
             $this->checkLetters(0, 3);
             $this->checkDigits(3, 4);
             $this->checkProvinceCode();
+
             return true;
         } catch (\Throwable $th) {
             throw $th;
@@ -58,6 +60,7 @@ class PlacaValidator extends Validator
             $this->checkDigits(2, 3);
             $this->checkLetters(5, 1);
             $this->checkProvinceCode();
+
             return true;
         } catch (\Throwable $th) {
             throw $th;
@@ -77,7 +80,7 @@ class PlacaValidator extends Validator
     {
         $code = $this->licensePlate[0];
 
-        if(in_array($code, $this->codes)) {
+        if (in_array($code, $this->codes)) {
             return true;
         }
 
@@ -88,7 +91,7 @@ class PlacaValidator extends Validator
     {
         $letters = substr($this->licensePlate, $start, $end);
 
-        if(preg_match('/^[A-Za-z]+$/', $letters)) {
+        if (preg_match('/^[A-Za-z]+$/', $letters)) {
             return true;
         }
 
@@ -99,7 +102,7 @@ class PlacaValidator extends Validator
     {
         $digits = substr($this->licensePlate, $start, $end);
 
-        if(ctype_digit($digits)) {
+        if (ctype_digit($digits)) {
             return true;
         }
 
@@ -108,7 +111,7 @@ class PlacaValidator extends Validator
 
     protected function isString()
     {
-        if(is_string($this->licensePlate)) {
+        if (is_string($this->licensePlate)) {
             return true;
         }
 
@@ -117,7 +120,7 @@ class PlacaValidator extends Validator
 
     protected function checkLength($length)
     {
-        if(strlen($this->licensePlate) === $length) {
+        if (strlen($this->licensePlate) === $length) {
             return true;
         }
 
