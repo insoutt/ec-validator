@@ -9,7 +9,7 @@ use InvalidArgumentException;
 class CellphoneValidator
 {
     private $phoneNumber;
-    
+
     public function __construct($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
@@ -35,9 +35,10 @@ class CellphoneValidator
         $this->checkLength(12);
         $localNumber = substr($this->phoneNumber, 3);
 
-        if (strlen($localNumber) !== 9 || substr($localNumber, 0, 1) !== '9') { 
+        if (strlen($localNumber) !== 9 || substr($localNumber, 0, 1) !== '9') {
             throw new CellphoneInternationalException('Número de celular no válido');
         }
+
         return true;
     }
 
@@ -45,7 +46,7 @@ class CellphoneValidator
     {
         $this->checkDigits();
         $this->checkLength(10);
-        
+
         // El número local debe tener 10 dígitos y empezar con 09
         if (strlen($this->phoneNumber) !== 10 || substr($this->phoneNumber, 0, 2) !== '09') {
             throw new CellphoneLocalException('Número de celular no válido');
@@ -56,7 +57,7 @@ class CellphoneValidator
 
     protected function checkDigits()
     {
-        if(ctype_digit($this->phoneNumber)) {
+        if (ctype_digit($this->phoneNumber)) {
             return true;
         }
 
@@ -65,7 +66,7 @@ class CellphoneValidator
 
     protected function checkLength($length)
     {
-        if(strlen($this->phoneNumber) === $length) {
+        if (strlen($this->phoneNumber) === $length) {
             return true;
         }
 

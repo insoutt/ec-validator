@@ -11,7 +11,7 @@ class TelephoneValidator
 {
     private $codes = ['2', '3', '4', '5', '6', '7'];
     private $telephone;
-    
+
     public function __construct($telephone)
     {
         $this->telephone = $telephone;
@@ -22,7 +22,7 @@ class TelephoneValidator
         try {
             if (substr($this->telephone, 0, 1) === '0') {
                 return $this->validateWithProvinceCode();
-            } else if (substr($this->telephone, 0, 3) === '593') {
+            } elseif (substr($this->telephone, 0, 3) === '593') {
                 return $this->validateInternational();
             } else {
                 return $this->validateLocal();
@@ -41,6 +41,7 @@ class TelephoneValidator
         try {
             $provinceCode = substr($this->telephone, 3, 1);
             $this->checkProvinceCode($provinceCode);
+
             return true;
         } catch (\Throwable $th) {
             throw new TelephoneInternationalException('Número de teléfono no válido');
@@ -56,6 +57,7 @@ class TelephoneValidator
         try {
             $provinceCode = substr($this->telephone, 1, 1);
             $this->checkProvinceCode($provinceCode);
+
             return true;
         } catch (\Throwable $th) {
             throw new TelephoneWithProvinceCodeException('Número de teléfono no válido');
@@ -65,9 +67,9 @@ class TelephoneValidator
     public function validateLocal()
     {
         $this->checkDigits();
-        $this->checkLength(7); 
+        $this->checkLength(7);
 
-        if(substr($this->telephone, 0, 1) === '0') {
+        if (substr($this->telephone, 0, 1) === '0') {
             throw new TelephoneLocalException('Número de teléfono no válido');
         }
 
@@ -76,7 +78,7 @@ class TelephoneValidator
 
     protected function startsWith($start, $value)
     {
-        if(strpos($value, $start) === 0) {
+        if (strpos($value, $start) === 0) {
             return true;
         }
 
@@ -85,15 +87,16 @@ class TelephoneValidator
 
     protected function checkProvinceCode($code)
     {
-        if(in_array($code, $this->codes)) {
+        if (in_array($code, $this->codes)) {
             return true;
         }
 
         throw new InvalidArgumentException('Código de provincia no válido');
     }
+
     protected function checkDigits()
     {
-        if(ctype_digit($this->telephone)) {
+        if (ctype_digit($this->telephone)) {
             return true;
         }
 
@@ -102,7 +105,7 @@ class TelephoneValidator
 
     protected function checkLength($length)
     {
-        if(strlen($this->telephone) === $length) {
+        if (strlen($this->telephone) === $length) {
             return true;
         }
 

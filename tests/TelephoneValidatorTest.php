@@ -69,7 +69,7 @@ class TelephoneValidatorTest extends TestCase
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneWithProvinceCodeException::class, $th);
             $this->assertSame('Número de teléfono no válido', $th->getMessage());
         }
-        
+
         try {
             (new TelephoneValidator('092398900'))->validateWithProvinceCode();
         } catch (\Throwable $th) {
@@ -126,7 +126,7 @@ class TelephoneValidatorTest extends TestCase
             (new TelephoneValidator('3334590'))->validateLocal(),
             (new TelephoneValidator('2334590'))->validateLocal(),
 
-            
+
 
             (new TelephoneValidator('022334590'))->validate(),
             (new TelephoneValidator('032334590'))->validate(),
@@ -150,7 +150,7 @@ class TelephoneValidatorTest extends TestCase
             (new TelephoneValidator('2334590'))->validate(),
         ];
 
-        $result = array_filter($validations, function($value) { return !$value; });
+        $result = array_filter($validations, function ($value) { return ! $value; });
         $this->assertSame(0, count($result));
     }
 }

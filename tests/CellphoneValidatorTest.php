@@ -58,7 +58,7 @@ class CellphoneValidatorTest extends TestCase
             (new CellphoneValidator('0983788602'))->validate(),
             (new CellphoneValidator('0983788603'))->validate(),
             (new CellphoneValidator('0983788604'))->validate(),
-            
+
             (new CellphoneValidator('593903788600'))->validate(),
             (new CellphoneValidator('593903788601'))->validate(),
             (new CellphoneValidator('593903788602'))->validate(),
@@ -70,7 +70,7 @@ class CellphoneValidatorTest extends TestCase
             (new CellphoneValidator('0983788602'))->validateNational(),
             (new CellphoneValidator('0983788603'))->validateNational(),
             (new CellphoneValidator('0983788604'))->validateNational(),
-            
+
             (new CellphoneValidator('593903788600'))->validateInternational(),
             (new CellphoneValidator('593903788601'))->validateInternational(),
             (new CellphoneValidator('593903788602'))->validateInternational(),
@@ -78,7 +78,7 @@ class CellphoneValidatorTest extends TestCase
             (new CellphoneValidator('593903788604'))->validateInternational(),
         ];
 
-        $result = array_filter($validations, function($value) { return !$value; });
+        $result = array_filter($validations, function ($value) { return ! $value; });
         $this->assertSame(0, count($result));
     }
 }
