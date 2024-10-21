@@ -24,8 +24,9 @@ class CIValidator extends Validator
         try {
             $this->isString();
             $this->checkLength();
+            $this->checkDigits();
             $this->checkProvinceCode();
-            $this->checkMod10();
+            $this->checkCi();
             return true;
         } catch (\Throwable $th) {
             throw $th;
@@ -39,6 +40,15 @@ class CIValidator extends Validator
         }
 
         throw new \Exception("La cédula debe ser un string");
+    }
+
+    protected function checkDigits()
+    {
+        if(ctype_digit($this->ci)) {
+            return true;
+        }
+
+        throw new LengthException("La cédula debe tener solo dígitos numéricos");
     }
 
     protected function checkLength()
@@ -65,9 +75,26 @@ class CIValidator extends Validator
         throw new CICodeException('El código de provincia de la cédula no es válido.');
     }
 
-    protected function checkMod10()
+    protected function checkCi()
     {
-        // TODO: Implement logic
+        // Convert string into an array of digits
+        $digits = array_map('intval', str_split($this->ci));
+
+        // Remove the last digit (verifier)
+        $verifier = array_pop($digits);
+
+        // Calculate the check digit
+        $calculated = array_reduce(
+            array_keys($digits),
+            function ($previous, $index) use ($digits) {
+                $current = $digits[$index];
+                return $previous - ($current * (2 - $index % 2)) % 9 - ($current === 9 ? 9 : 0);
+            },
+            1000
+        ) % 10;
+
+        // Compare the calculated digit with the verifier
+        return $calculated === $verifier;
     }
 
  
