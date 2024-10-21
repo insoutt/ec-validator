@@ -99,7 +99,7 @@ class PlacaValidator extends Validator
     {
         $digits = substr($this->licensePlate, $start, $end);
 
-        if(preg_match('/^\d+$/', $digits)) {
+        if(ctype_digit($digits)) {
             return true;
         }
 
