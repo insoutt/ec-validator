@@ -33,7 +33,7 @@ class CIValidatorTest extends TestCase
 
     public function test_valid_ci()
     {
-        /* Información obtenida de las siguientes fuentes, o mediante búsquedas en internet. 
+        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet. 
          * Para solicitar eliminar un número de cédula hacerlo mediante 
          * la sección de issues en el repositorio de este proyecto.
          * 
@@ -98,7 +98,6 @@ class CIValidatorTest extends TestCase
         ];
 
         $result = array_filter($validations, function($value) { return !$value; });
-
         $this->assertSame(0, count($result));
     }
 }
