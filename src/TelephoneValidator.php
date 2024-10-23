@@ -78,11 +78,11 @@ class TelephoneValidator
 
     protected function startsWith($start, $value)
     {
-        if (strpos($value, $start) === 0) {
-            return true;
+        if (strpos($value, $start) === false) {
+            throw new InvalidArgumentException("Número de teléfono {$this->telephone} no válido");
         }
 
-        throw new InvalidArgumentException("Número de teléfono {$this->telephone} no válido");
+        return true;
     }
 
     protected function checkProvinceCode($code)
