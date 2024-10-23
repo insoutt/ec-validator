@@ -27,6 +27,10 @@ class PlacaValidator extends Validator
             try {
                 return $this->validateMoto();
             } catch (\Throwable $motoException) {
+                if($carException instanceof ProvinceCodeException) {
+                    throw $carException;
+                }
+
                 if ($carException->getMessage() === $motoException->getMessage()) {
                     throw new \InvalidArgumentException($carException->getMessage());
                 }
@@ -84,7 +88,7 @@ class PlacaValidator extends Validator
             return true;
         }
 
-        throw new ProvinceCodeException('Código de provincia no válido.');
+        throw new ProvinceCodeException('Código de provincia no válido');
     }
 
     protected function checkLetters($start, $end)
