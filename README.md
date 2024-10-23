@@ -4,7 +4,8 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/insoutt/ec-validator/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/insoutt/ec-validator/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/insoutt/ec-validator.svg?style=flat-square)](https://packagist.org/packages/insoutt/ec-validator)
 
-Con `insoutt/ec-validator` podrás realizar comprobaciones de distinta información que frecuentemente se suele validar como: 
+Con `insoutt/ec-validator` podrás realizar validaciones de distintos datos que se suele usar frecuentemente en Ecuador, como por ejemplo:
+
 - Validar RUC
 - Validar cédula
 - Validar número de teléfono fijo
