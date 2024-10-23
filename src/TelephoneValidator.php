@@ -36,7 +36,7 @@ class TelephoneValidator
     {
         $this->checkDigits();
         $this->checkLength(11);
-        $this->startsWith(593, $this->telephone);
+        $this->startsWith('593', $this->telephone);
 
         try {
             $provinceCode = substr($this->telephone, 3, 1);
@@ -52,7 +52,7 @@ class TelephoneValidator
     {
         $this->checkDigits();
         $this->checkLength(9);
-        $this->startsWith(0, $this->telephone);
+        $this->startsWith('0', $this->telephone);
 
         try {
             $provinceCode = substr($this->telephone, 1, 1);
@@ -78,11 +78,11 @@ class TelephoneValidator
 
     protected function startsWith($start, $value)
     {
-        if (strpos($value, $start) === false) {
-            throw new InvalidArgumentException("Número de teléfono {$this->telephone} no válido");
+        if (strpos($value, $start) === 0) {
+            return true;
         }
 
-        return true;
+        throw new InvalidArgumentException("Número de teléfono {$this->telephone} no válido");
     }
 
     protected function checkProvinceCode($code)
