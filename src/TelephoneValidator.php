@@ -44,7 +44,7 @@ class TelephoneValidator
 
             return true;
         } catch (\Throwable $th) {
-            throw new TelephoneInternationalException('Número de teléfono no válido');
+            throw new TelephoneInternationalException("Número de teléfono {$this->telephone} no válido");
         }
     }
 
@@ -60,7 +60,7 @@ class TelephoneValidator
 
             return true;
         } catch (\Throwable $th) {
-            throw new TelephoneWithProvinceCodeException('Número de teléfono no válido');
+            throw new TelephoneWithProvinceCodeException("Número de teléfono {$this->telephone} no válido");
         }
     }
 
@@ -70,7 +70,7 @@ class TelephoneValidator
         $this->checkLength(7);
 
         if (substr($this->telephone, 0, 1) === '0') {
-            throw new TelephoneLocalException('Número de teléfono no válido');
+            throw new TelephoneLocalException("Número de teléfono {$this->telephone} no válido");
         }
 
         return true;
@@ -82,7 +82,7 @@ class TelephoneValidator
             return true;
         }
 
-        throw new InvalidArgumentException('Número de teléfono no válido');
+        throw new InvalidArgumentException("Número de teléfono {$this->telephone} no válido");
     }
 
     protected function checkProvinceCode($code)

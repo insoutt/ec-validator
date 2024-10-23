@@ -67,35 +67,35 @@ class TelephoneValidatorTest extends TestCase
             (new TelephoneValidator('033459045'))->validateWithProvinceCode();
         } catch (\Throwable $th) {
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneWithProvinceCodeException::class, $th);
-            $this->assertSame('Número de teléfono no válido', $th->getMessage());
+            $this->assertSame('Número de teléfono 033459045 no válido', $th->getMessage());
         }
 
         try {
             (new TelephoneValidator('092398900'))->validateWithProvinceCode();
         } catch (\Throwable $th) {
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneWithProvinceCodeException::class, $th);
-            $this->assertSame('Número de teléfono no válido', $th->getMessage());
+            $this->assertSame('Número de teléfono 092398900 no válido', $th->getMessage());
         }
 
         try {
             (new TelephoneValidator('59392398900'))->validateInternational();
         } catch (\Throwable $th) {
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneInternationalException::class, $th);
-            $this->assertSame('Número de teléfono no válido', $th->getMessage());
+            $this->assertSame('Número de teléfono 59392398900 no válido', $th->getMessage());
         }
 
         try {
             (new TelephoneValidator('092398900'))->validate();
         } catch (\Throwable $th) {
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneWithProvinceCodeException::class, $th);
-            $this->assertSame('Número de teléfono no válido', $th->getMessage());
+            $this->assertSame('Número de teléfono 092398900 no válido', $th->getMessage());
         }
 
         try {
             (new TelephoneValidator('59392398900'))->validate();
         } catch (\Throwable $th) {
             $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\TelephoneInternationalException::class, $th);
-            $this->assertSame('Número de teléfono no válido', $th->getMessage());
+            $this->assertSame('Número de teléfono 59392398900 no válido', $th->getMessage());
         }
     }
 
