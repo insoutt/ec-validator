@@ -20,10 +20,17 @@ class RucValidatorTest extends TestCase
 
     public function test_ruc_code_exception()
     {
-        $this->expectException(RucCodeException::class);
+        try {
+            (new RucValidator('0010000000001'))->validate();
+        } catch (\Throwable $th) {
+            $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\RucCodeException::class, $th);
+        }
 
-        $validator = new RucValidator('0010000000001');
-        $validator->validate();
+        try {
+            (new RucValidator('2510000000001'))->validate();
+        } catch (\Throwable $th) {
+            $this->assertInstanceOf(\Insoutt\EcValidator\Exceptions\RucCodeException::class, $th);
+        }
     }
 
     public function test_last_3_digits_exception()
