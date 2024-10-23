@@ -4,7 +4,6 @@ namespace Insoutt\EcValidator\Tests;
 
 use Exception;
 use Insoutt\EcValidator\Exceptions\LengthException;
-use Insoutt\EcValidator\Exceptions\RucCodeException;
 use Insoutt\EcValidator\Exceptions\RucLast3DigitsException;
 use Insoutt\EcValidator\RucValidator;
 
