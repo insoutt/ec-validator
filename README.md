@@ -13,7 +13,7 @@ Con `insoutt/ec-validator` podrás realizar validaciones de distintos datos que 
 - Validar placa de carro
 - Validar placa de moto
 
-Si crees que falta validar alguna información adicional puedes crear una sugerencia para poder desarrollarla o también puedes enviar un Pull Request. 
+Si crees que falta validar alguna información adicional puedes crear una sugerencia en el [Foro de Discuciones](https://github.com/insoutt/ec-validator/discussions/new?category=q-a) para desarrollarla o también puedes crear un [Pull Request](https://github.com/insoutt/ec-validator/pulls) para ser implementado.
 
 ## Installación
 
@@ -47,7 +47,7 @@ if ($validator->validateCedula('0102030405')) {
 ### Validar RUC
 El número de RUC no tiene un algoritmo específico definido por lo que no existe un método exacto para validarlo. Ante esto la validación que se realiza es de estructura validando el código de provincia y el número de establecimiento.
 
-Si conoces algún mejor método puedes publicarlo en el [Foro de Discuciones](https://github.com/insoutt/ec-validator/discussions/new?category=q-a) o [crear un Pull Request](https://github.com/insoutt/ec-validator/discussions/new?category=q-a) para implementarlo.
+Si conoces algún mejor método puedes publicarlo en el [Foro de Discuciones](https://github.com/insoutt/ec-validator/discussions/new?category=q-a) o [crear un Pull Request](https://github.com/insoutt/ec-validator/pulls) para implementarlo.
 
 En el caso de validaciones de un RUC personal si se podría realizar ya que la comprobación sería la misma que la cédula más el código de establecimiento que por lo general es `001`.
 
