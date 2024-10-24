@@ -27,7 +27,7 @@ class PlacaValidator extends Validator
             try {
                 return $this->validateMoto();
             } catch (\Throwable $motoException) {
-                if($carException instanceof ProvinceCodeException) {
+                if ($carException instanceof ProvinceCodeException) {
                     throw $carException;
                 }
 

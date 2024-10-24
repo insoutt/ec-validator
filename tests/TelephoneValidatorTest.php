@@ -126,7 +126,7 @@ class TelephoneValidatorTest extends TestCase
             (new TelephoneValidator('3334590'))->validateLocal(),
             (new TelephoneValidator('2334590'))->validateLocal(),
 
-            
+
             (new TelephoneValidator('022334590'))->validate(),
             (new TelephoneValidator('032334590'))->validate(),
             (new TelephoneValidator('042334590'))->validate(),

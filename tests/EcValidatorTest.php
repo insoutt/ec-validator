@@ -14,7 +14,7 @@ class EcValidatorTest extends TestCase
         $this->assertSame('La cédula debe tener 10 caracteres', $validator->getError());
 
         $this->assertTrue($validator->validateCedula('1500744576'));
-        $this->assertSame('', $validator->getError());        
+        $this->assertSame('', $validator->getError());
     }
 
     public function test_validate_ruc()
@@ -25,7 +25,7 @@ class EcValidatorTest extends TestCase
         $this->assertSame('El RUC debe tener 13 caracteres', $validator->getError());
 
         $this->assertTrue($validator->validateRuc('1791248678001'));
-        $this->assertSame('', $validator->getError());        
+        $this->assertSame('', $validator->getError());
     }
 
     public function test_validate_placa()
