@@ -13,7 +13,7 @@ Con `insoutt/ec-validator` podrás realizar validaciones de distintos datos que 
 - Validar placa de carro
 - Validar placa de moto
 
-Si crees que falta validar alguna información adicional puedes crear una sugerencia en el [Foro de Discuciones](https://github.com/insoutt/ec-validator/discussions/new?category=q-a) para desarrollarla o también puedes crear un [Pull Request](https://github.com/insoutt/ec-validator/pulls) para ser implementado.
+Si crees que falta validar alguna información adicional puedes crear una sugerencia en el [Foro de Discuciones](https://github.com/insoutt/ec-validator/discussions/new?category=ideas) para desarrollarla o también puedes crear un [Pull Request](https://github.com/insoutt/ec-validator/pulls) para ser implementado.
 
 ## Installación
 
