@@ -60,6 +60,7 @@ class RucValidatorTest extends TestCase
          */
         $validations = [
             (new RucValidator('0990828237001'))->validate(),
+            (new RucValidator('0962893970001'))->validate(),
             (new RucValidator('0990271712001'))->validate(),
             (new RucValidator('1791248678001'))->validate(),
             (new RucValidator('0992142618001'))->validate(),
