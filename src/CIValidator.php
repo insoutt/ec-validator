@@ -95,7 +95,7 @@ class CIValidator extends Validator
             1000
         ) % 10;
 
-        if($calculated !== $verifier) {
+        if ($calculated !== $verifier) {
             throw new \Exception("La cédula no es válida.");
         }
 
