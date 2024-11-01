@@ -32,6 +32,14 @@ class CIValidatorTest extends TestCase
         $validator->validate();
     }
 
+    public function test_invalid_ci()
+    {
+        $this->expectException(\Exception::class);
+
+        $validator = new CIValidator('1400724650');
+        $validator->validate();
+    }
+
     public function test_valid_ci()
     {
         /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.

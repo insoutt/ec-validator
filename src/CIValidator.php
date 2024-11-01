@@ -95,7 +95,10 @@ class CIValidator extends Validator
             1000
         ) % 10;
 
-        // Compare the calculated digit with the verifier
-        return $calculated === $verifier;
+        if($calculated !== $verifier) {
+            throw new \Exception("La cédula no es válida.");
+        }
+
+        return true;
     }
 }
