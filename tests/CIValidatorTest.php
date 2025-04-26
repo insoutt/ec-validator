@@ -104,6 +104,7 @@ class CIValidatorTest extends TestCase
             (new CIValidator('1710873934'))->validate(),
             (new CIValidator('0201846581'))->validate(),
             (new CIValidator('1717795882'))->validate(),
+            (new CIValidator('2400192155'))->validate(),
         ];
 
         $result = array_filter($validations, function ($value) { return ! $value; });

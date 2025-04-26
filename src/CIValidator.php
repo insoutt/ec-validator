@@ -65,7 +65,7 @@ class CIValidator extends Validator
     {
         $code = (int) substr($this->ci, 0, 2);
 
-        if ($code > 0 && $code < 24) {
+        if ($code > 0 && $code <= 24) {
             return true;
         }
 
