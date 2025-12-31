@@ -160,6 +160,7 @@ class RucValidatorTest extends TestCase
             (new RucValidator('0190003299001'))->validate(),
             (new RucValidator('0190151549001'))->validate(),
             (new RucValidator('1792250285001'))->validate(),
+            (new RucValidator('2400208605001'))->validate(),
         ];
 
         $result = array_filter($validations, function ($value) { return ! $value; });

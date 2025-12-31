@@ -67,7 +67,7 @@ class RucValidator extends Validator
     {
         $code = (int) substr($this->ruc, 0, 2);
 
-        if ($code > 0 && $code < 24) {
+        if ($code > 0 && $code <= 24) {
             return true;
         }
 
