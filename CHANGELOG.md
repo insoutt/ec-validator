@@ -2,6 +2,10 @@
 
 All notable changes to `ec-validator` will be documented in this file.
 
+## 1.1.3 - 2025-12-31
+
+Allow province code 24 in RUC
+
 ## 1.1.2 - 2025-04-26
 
 - Allow province code 24
