@@ -42,12 +42,13 @@ class CIValidatorTest extends TestCase
 
     public function test_valid_ci()
     {
-        /** Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.
+        /**
+         * Información obtenida de las siguientes fuentes, o mediante búsquedas en internet.
          * Para solicitar eliminar un número de cédula hacerlo mediante
          * la sección de issues en el repositorio de este proyecto.
          *
          *    https://portal.compraspublicas.gob.ec/sercop/wp-content/uploads/2018/04/ASISTENTE_DE_ATENCION_USUARIO_PROVINCIAL_ZONAL2.pdf
-         *    https://portal.compraspublicas.gob.ec/sercop/wp-content/uploads/2018/04/ASISTENTE_DE_ATENCION_USUARIO_PROVINCIAL_ZONAL2.pdf
+         *    https://www.dpe.gob.ec/wp-content/dpetalentohumano2015/concursos/13-10-2015-Listado_de_pruebas_Delegacion_Provincial_de_Santa_Elena_(Santa_Elena).pdf
          */
         $validations = [
             (new CIValidator('1400724652'))->validate(),
@@ -104,7 +105,7 @@ class CIValidatorTest extends TestCase
             (new CIValidator('1710873934'))->validate(),
             (new CIValidator('0201846581'))->validate(),
             (new CIValidator('1717795882'))->validate(),
-            (new CIValidator('2400192155'))->validate(),
+            (new CIValidator('2400086928'))->validate(),
         ];
 
         $result = array_filter($validations, function ($value) { return ! $value; });
